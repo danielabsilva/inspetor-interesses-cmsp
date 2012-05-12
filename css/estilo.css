@@ -1,13 +1,29 @@
 body {
+    font-family: 'Imprima', sans serif;
+    font-size: 20px;
+    font-weight: 400;
+}
+
+body p{
+    font-family: 'Imprima', sans serif;
+    font-size: 20px;
+    font-weight: 400;
+}
+
+#header {
+    margin: 30px auto;
 }
 
 #header h1 {
-    display: block;
-    margin: 30px;
+    font-family: 'Slackey', cursive;
+    font-size: 38px;
+    margin-top: 30px;
 }
 
 #header img {
-    margin: 30px;
+    width: 90px;
+    float: left;
+    margin-right: 10px;
 }
 
 #vereador img {
