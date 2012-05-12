@@ -27,6 +27,8 @@
     
     my = {};
     my.base_url = "http://thedatahub.org/api/data/2ae8957f-a6a8-405e-95ea-a64e908da1ff";
+    my.termos_comuns = [];
+    my.termos_unicos = [];
     my.query = { "query" : {
             "term" : {
                 "autores" : "EXECUTIVO"
@@ -52,7 +54,7 @@
             my.query.query.term.autores = my.vereador;
         }
         my.url = my.base_url + '/_search?source=' + JSON.stringify(my.query)
-        termosComuns(); 
+        carregaComuns(); 
         carregaResultados();
         carregaCampeao();
     });
@@ -92,8 +94,7 @@
         <div id="filtros" class="row">
             <div class="span6">
                 <ul><p>Filtrar resultados:</p>
-                    <li>Retirar termos comuns para todos</li>
-                    <li>Ver apenas projetos aprovados</li>
+                    <li onClick="removeComuns()">Retirar termos comuns para todos</li>
                 </ul>
             </div>
         </div>

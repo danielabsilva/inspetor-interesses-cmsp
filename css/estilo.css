@@ -76,3 +76,7 @@ body p{
 #filtros li {}
 
 #footer {}
+
+.soft {
+    opacity: 0.2;
+    }
