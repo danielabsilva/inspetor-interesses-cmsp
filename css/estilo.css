@@ -1,22 +1,62 @@
 body {
+    font-family: 'Imprima', sans serif;
+    font-size: 20px;
+    font-weight: 400;
+}
+
+body p{
+    font-family: 'Imprima', sans serif;
+    font-size: 20px;
+    font-weight: 400;
+}
+
+.container {
+    margin: 0 auto;
+}
+
+#header {
+    margin-top: 30px;
 }
 
 #header h1 {
-    display: block;
-    margin: 30px;
+    font-family: 'Slackey', cursive;
+    font-size: 38px;
+    margin-top: 30px;
+    color: #000000;
+}
+
+#header p {
+    color: #666666;
 }
 
 #header img {
-    margin: 30px;
+    width: 90px;
+    float: left;
+    margin-right: 10px;
+}
+
+#vereador {
+    margin-top: 30px;
 }
 
 #vereador img {
-    border: solid 1px #333;
-    margin: 30px;
+    border: solid 3px #000;
+    width: 70px;
+    float: left;
+    margin-right: 20px;
 }
 
 #vereador h2 {
-    margin: 30px;
+    margin-top: 42px;
+    font-size: 30px;
+}
+
+#vereador #legislaturas {
+    float: right;
+}
+
+#legislaturas {
+    margin-top: 30px;
 }
 
 #termos {}
