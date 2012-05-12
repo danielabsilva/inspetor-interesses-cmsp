@@ -6,9 +6,57 @@
 	<meta name="keywords" content="cmsp, dados abertos, open data, camara, sao paulo, vereadores, interesses, tramitacao, votacao" />
 	<title>Inspetor de Interesses - CMSP</title>
 	<!-- <link rel='stylesheet'href=FONTE type='text/css' /> -->
-	<link rel="stylesheet" href="bootstrap/2.0.0/bootstrap.css" type="text/css" media="screen" />
-	<link rel="stylesheet" href="css/estilo.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="./vendor/bootstrap/2.0.0/bootstrap.css" type="text/css" media="screen" />
+	<link rel="stylesheet" href="./css/estilo.css" type="text/css" media="screen" />
+    <script language="javascript" type="text/javascript" src="./vendor/jquery.js"></script>
 	<!--<link rel="shortcut icon" href="img/favico.png" type="img/x-icon" /> -->
+    <script>
+    function gup( name ) {
+      name = name.replace(/[\[]/,"\\\[").replace(/[\]]/,"\\\]");
+      var regexS = "[\\?&]"+name+"=([^&#]*)";
+      var regex = new RegExp( regexS );
+      var results = regex.exec( window.location.href );
+      if( results == null )
+        return "";
+      else
+        var result = results[1].substring(0,results[1].length);
+        return decodeURIComponent(result).replace(/\+/g, " ")
+    }
+    
+    my = {};
+    my.base_url = "http://localhost:9200/esfera/camarasp";
+    my.query = { "query" : {
+            "term" : {
+                "autores" : "EXECUTIVO"
+            }
+        },
+    "size":0,
+    "from":0,
+    "facets" : {
+        "autores" : {
+            "terms" : {
+                "field" : "assuntos",
+                "size" : 30
+                }
+            }
+        }
+        };
+    
+    $(document).ready(function() {
+        if (gup("vereador")) {
+            my.vereador = gup("vereador").split("/")[0];
+            my.query.query.term.autores = my.vereador;
+        }
+        my.url = my.base_url + '/_search?source=' + JSON.stringify(my.query)
+         $.getJSON(my.url, function(data) {
+            $("#nome h2").text(my.vereador);
+            $.each(data.facets.autores.terms, function(key, data) {
+                $("#top3 ul").append("<li>" + data.term + "(" + data.count + ")" + "</li>");
+                });
+        });
+    });
+    </script>
+
 </head>
 <body>
     <div class="container">
@@ -24,16 +72,13 @@
             <div class="span1">
                 <img src="img/vereador_teste.jpg" width=40px alt="Imagem do vereador"/>
             </div>
-            <div class="span1">
+            <div class="span5" id="nome">
                     <h2>{{vereador}}</h2>
             </div>
         </div>
         <div id="termos" class="row">
             <div id="top3" class="span6">
                 <ul>
-                    <li>{{termo1}}</li>
-                    <li>{{termo2}}</li>
-                    <li>{{termo3}}</li>
                 </ul>
             </div>
             <div id="campeão" class="span6">
