@@ -12,12 +12,21 @@ body p{
 
 #header {
     margin: 30px auto;
+    background-color: #FFF;
+    padding: 10px;
+    border: 1px solid #333;
+
 }
 
 #header h1 {
     font-family: 'Slackey', cursive;
     font-size: 38px;
     margin-top: 30px;
+    color: #000000;
+}
+
+#header p {
+    color: #666666;
 }
 
 #header img {
@@ -27,7 +36,7 @@ body p{
 }
 
 #vereador img {
-    border: solid 1px #333;
+    border: solid 3px #000;
     margin: 30px;
 }
 

@@ -25,7 +25,7 @@
     }
     
     my = {};
-    my.base_url = "http://localhost:9200/esfera/camarasp";
+    my.base_url = "http://thedatahub.org/api/data/2ae8957f-a6a8-405e-95ea-a64e908da1ff";
     my.query = { "query" : {
             "term" : {
                 "autores" : "EXECUTIVO"
@@ -65,12 +65,12 @@
             <div class="span12">
                 <img src="img/logo.gif" alt="Lupa"/>
                 <h1>Inspetor de Interesses</h1>
-                <p>Descubra os temas de interesse dos vereadores e vereadoras da Câmara Municipal de São Paulo</p>
+                <p>Temas de interesse dos vereadores e vereadoras da Câmara Municipal de São Paulo</p>
             </div>
         </div>
         <div id="vereador" class="row">
             <div class="span1">
-                <img src="img/vereador_teste.jpg" width=40px alt="Imagem do vereador"/>
+                <img src="img/placeholder.gif" width=70px alt="Imagem do vereador"/>
             </div>
             <div class="span8" id="nome">
                     <h2>{{vereador}}</h2>
@@ -78,7 +78,7 @@
         </div>
         <div id="termos" class="row">
             <div id="top3" class="span6">
-                <p>Temas abordados em proposições de lei - Top 30</p>
+                <p>Temas abordados em proposições de lei - Top 15</p>
                 <ul>
                 </ul>
             </div>
@@ -91,7 +91,7 @@
         <div id="filtros" class="row">
             <div class="span6">
                 <ul><p>Filtrar resultados:</p>
-                    <li>Retirar termos comuns para todos os vereadores</li>
+                    <li>Retirar termos comuns para todos</li>
                     <li>Ver apenas projetos aprovados</li>
                 </ul>
             </div>
