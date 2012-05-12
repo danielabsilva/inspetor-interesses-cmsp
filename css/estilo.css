@@ -51,15 +51,22 @@ body p{
     font-size: 30px;
 }
 
-#vereador #legislaturas {
-    float: right;
+#legislaturas {
+    margin-top: 20px;
 }
 
-#legislaturas {
+#legislaturas p{
+    font-size: 15px;
+    display: block;
+    color: #000;
+    background-color: #FFDD00;
+    padding: 5px;
+    border: 1px solid #FFDD00;
+}
+
+#termos {
     margin-top: 30px;
 }
-
-#termos {}
 
 #termos p {}
 
