@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="./vendor/bootstrap/2.0.0/bootstrap.css" type="text/css" media="screen" />
 	<link rel="stylesheet" href="./css/estilo.css" type="text/css" media="screen" />
     <script language="javascript" type="text/javascript" src="./vendor/jquery.js"></script>
+    <script language="javascript" type="text/javascript" src="./js/main.js"></script>
 	<!--<link rel="shortcut icon" href="img/favico.png" type="img/x-icon" /> -->
     <script>
     function gup( name ) {
@@ -24,7 +25,7 @@
     }
     
     my = {};
-    my.base_url = "http://localhost:9200/esfera/camarasp";
+    my.base_url = "http://thedatahub.org/api/data/2ae8957f-a6a8-405e-95ea-a64e908da1ff";
     my.query = { "query" : {
             "term" : {
                 "autores" : "EXECUTIVO"
@@ -42,18 +43,16 @@
         }
         };
     
+    
+    
     $(document).ready(function() {
         if (gup("vereador")) {
             my.vereador = gup("vereador").split("/")[0];
             my.query.query.term.autores = my.vereador;
         }
         my.url = my.base_url + '/_search?source=' + JSON.stringify(my.query)
-         $.getJSON(my.url, function(data) {
-            $("#nome h2").text(my.vereador);
-            $.each(data.facets.autores.terms, function(key, data) {
-                $("#top3 ul").append("<li>" + data.term + "(" + data.count + ")" + "</li>");
-                });
-        });
+        termosComuns(); 
+        carregaResultados();
     });
     </script>
 

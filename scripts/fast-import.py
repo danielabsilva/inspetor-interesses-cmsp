@@ -3,7 +3,7 @@ import csv, os
 import md5
 
 #Define elasticsearch database
-url = "http://localhost:9200/tmp/camarasp/"
+url = "http://thedatahub.org/api/data/2ae8957f-a6a8-405e-95ea-a64e908da1ff"
 client = datastore.client.DataStoreClient(url)
 
 encoding = 'iso-8859-1'
@@ -59,7 +59,7 @@ for a in assuntos:
         #print 'Falha ao importar assuntos de ' + id_projeto
         assuntos_errors += 1
 
-print 'Ocorreram ' + str(assuntos_errors) + ' erros na importacao dos autores'
+print 'Ocorreram ' + str(assuntos_errors) + ' erros na importacao dos assuntos'
 
 def funkystuff(reader):
     for p in reader:
@@ -78,6 +78,4 @@ client.mapping_update(
 })
 print 'Mapping done'
 
-for row in funkystuff(projetos):
-    client.upsert([row])
-    #print row
+client.upsert(funkystuff(projetos))
