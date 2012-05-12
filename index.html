@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+	<meta charset="utf-8" />
+	<meta name="description" content="Inspetor dos interesses dos vereadores da Câmara Municipal de São Paulo"/>
+	<meta name="keywords" content="cmsp, dados abertos, open data, camara, sao paulo, vereadores, interesses, tramitacao, votacao" />
+	<title>Inspetor de Interesses - CMSP</title>
+	<!-- <link rel='stylesheet'href=FONTE type='text/css' /> -->
+	<link rel="stylesheet" href="bootstrap/2.0.0/bootstrap.css" type="text/css" media="screen" />
+	<link rel="stylesheet" href="css/estilo.css" type="text/css" media="screen" />
+	<!--<link rel="shortcut icon" href="img/favico.png" type="img/x-icon" /> -->
+</head>
+<body>
+    <div class="container">
+        <div id="header" class="row">
+            <div class="span1">
+                <img src="img/logo.jpg" alt="Lupa"/>
+            </div>
+            <div class="span8">
+                <h1>Inspetor de Interesses da Câmara Municipal de São Paulo</h1>
+            </div>
+        </div>
+        <div id="vereador" class="row">
+            <div class="span1">
+                <img src="img/vereador_teste.jpg" width=40px alt="Imagem do vereador"/>
+            </div>
+            <div class="span1">
+                    <h2>{{vereador}}</h2>
+            </div>
+        </div>
+        <div id="termos" class="row">
+            <div id="top3" class="span6">
+                <ul>
+                    <li>{{termo1}}</li>
+                    <li>{{termo2}}</li>
+                    <li>{{termo3}}</li>
+                </ul>
+            </div>
+            <div id="campeão" class="span6">
+                <img src="img/campeao.jpg" width=150px alt="Imagem do artigo"/>
+                <p>Campeão do tema:</p>
+                <span id="termocampeao">{{termocampeao}}</span>
+            </div>
+        </div>
+        <div id="filtros" class="row">
+            <div class="span6">
+                <ul><p>Filtrar resultados:</p>
+                    <li>Retirar termos comuns para todos os vereadores</li>
+                    <li>Ver apenas projetos aprovados</li>
+                </ul>
+            </div>
+        </div>
+        <div id="footer" class="row">
+            <div class="span12">
+                <p>Sobre</p>
+            </div>
+        </div>
+    </div>
+</body>

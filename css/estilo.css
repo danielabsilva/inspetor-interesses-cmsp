@@ -1,0 +1,38 @@
+body {
+}
+
+#header h1 {
+    display: block;
+    margin: 30px;
+}
+
+#header img {
+    margin: 30px;
+}
+
+#vereador img {
+    border: solid 1px #333;
+    margin: 30px;
+}
+
+#vereador h2 {
+    margin: 30px;
+}
+
+#termos {}
+
+#termos p {}
+
+#top3 li {}
+
+#campeao p {
+    text-align: center;
+}
+
+#filtros {}
+
+#filtros p {}
+
+#filtros li {}
+
+#footer {}
