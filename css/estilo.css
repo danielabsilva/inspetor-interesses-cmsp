@@ -10,12 +10,12 @@ body p{
     font-weight: 400;
 }
 
-#header {
-    margin: 30px auto;
-    background-color: #FFF;
-    padding: 10px;
-    border: 1px solid #333;
+.container {
+    margin: 0 auto;
+}
 
+#header {
+    margin-top: 30px;
 }
 
 #header h1 {
@@ -35,13 +35,28 @@ body p{
     margin-right: 10px;
 }
 
+#vereador {
+    margin-top: 30px;
+}
+
 #vereador img {
     border: solid 3px #000;
-    margin: 30px;
+    width: 70px;
+    float: left;
+    margin-right: 20px;
 }
 
 #vereador h2 {
-    margin: 30px;
+    margin-top: 42px;
+    font-size: 30px;
+}
+
+#vereador #legislaturas {
+    float: right;
+}
+
+#legislaturas {
+    margin-top: 30px;
 }
 
 #termos {}
