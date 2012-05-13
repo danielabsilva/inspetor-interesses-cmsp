@@ -8,6 +8,7 @@
 	<link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Imprima' type='text/css'>
     <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Slackey' type='text/css'>
     <link rel="stylesheet" href="./vendor/bootstrap/2.0.0/bootstrap.css" type="text/css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="./vendor/jquery-ui/css/ui-lightness/jquery-ui-1.8.20.custom.css" />
 	<link rel="stylesheet" href="./css/estilo.css" type="text/css" media="screen" />
     <script language="javascript" type="text/javascript" src="./vendor/jquery.js"></script>
     <script language="javascript" type="text/javascript" src="./vendor/jquery-ui/jquery-ui-1.8.20.custom.min.js"></script>
@@ -43,8 +44,9 @@
       $.ajax({
         url: "http://thedatahub.org/api/data/2ae8957f-a6a8-405e-95ea-a64e908da1ff/_search?source=" + JSON.stringify(q),
         type: "GET",
-        success: function( data ) {
-          response( $.map( data.facets.autores.terms, function( item ) {
+        dataType: "json",
+        success: function(dados) {
+          response( $.map( dados.facets.autores.terms, function( item ) {
             return {
               label: item.term,
               id: item.term
