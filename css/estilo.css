@@ -1,5 +1,5 @@
 body {
-    font-family: 'Imprima', sans serif;
+    font-family: 'Imprima', sans serif !important;
     font-size: 20px;
     font-weight: 400;
 }
@@ -131,6 +131,18 @@ body p{
     text-align: center;
     margin-top: 140px;
     margin-bottom: 140px;
+}
+
+.demo label {
+    font-size: 20px;
+    font-family: 'Imprima', sans serif;
+    margin-bottom: 15px;
+}
+
+.demo button {
+    vertical-align: baseline !important;
+    font-family: 'Imprima', sans serif;
+    font-size: 20px;
 }
 
 .soft {
