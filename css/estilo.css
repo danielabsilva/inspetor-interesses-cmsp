@@ -52,34 +52,74 @@ body p{
 }
 
 #legislaturas {
-    margin-top: 20px;
+    margin-top: 30px;    
+    font-size: 15px;
+    color: #000;
 }
 
-#legislaturas p{
-    font-size: 15px;
-    display: block;
-    color: #000;
-    background-color: #FFDD00;
-    padding: 5px;
-    border: 1px solid #FFDD00;
+#legislaturas ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+#legislaturas li {
+    padding: 3px;
 }
 
 #termos {
-    margin-top: 30px;
+    margin-top: 50px;
 }
 
-#termos p {}
+#termos p {
+    font-size: 20px;
+    margin-bottom: 20px;
+}
 
-#top3 li {}
+#top3 li {
+    line-height: 1.5em;
+}
+
+#campeao {
+    text-align: center;
+    margin-top: 20px;
+}
 
 #campeao p {
-    text-align: center;
+    margin-top: 10px;
 }
 
-#filtros {}
+#filtros {
+    margin-top: 10px;
+    margin-bottom: 30px;
+}
 
-#filtros p {}
+#filtros ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    padding-right: -30px;
+}
 
-#filtros li {}
+#footer {
+    background-color: #888877;
+    border-top: 1px solid #888877;
+    border-radius: 10px;
+    color: #fff;
+    border-bottom: -1000px;
+}
 
-#footer {}
+#footer p{
+    font-size: 16px;
+    margin: 10px;
+}
+
+#footer a {
+    color: #FFDD00;
+}
+
+#footer img {
+    margin-top: 35px;
+    margin-left: 150px;
+    width: 120px;
+}
