@@ -51,32 +51,82 @@ body p{
     font-size: 30px;
 }
 
-#vereador #legislaturas {
-    float: right;
-}
-
 #legislaturas {
-    margin-top: 30px;
+    margin-top: 30px;    
+    font-size: 15px;
+    color: #000;
 }
 
-#termos {}
+#legislaturas ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
 
-#termos p {}
+#legislaturas li {
+    padding: 3px;
+}
 
-#top3 li {}
+#termos {
+    margin-top: 50px;
+}
+
+#termos p {
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+#top3 li {
+    line-height: 1.5em;
+}
+
+#campeao {
+    text-align: center;
+    margin-top: 20px;
+}
 
 #campeao p {
-    text-align: center;
+    margin-top: 10px;
 }
 
-#filtros {}
+#filtros {
+    margin-top: 10px;
+    margin-bottom: 30px;
+}
 
-#filtros p {}
+#filtros ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    padding-right: -30px;
+}
 
-#filtros li {}
+#footer {
+    background-color: #888877;
+    border-top: 1px solid #888877;
+    border-radius: 10px;
+    color: #fff;
+    border-bottom: -1000px;
+}
+
+#footer p{
+    font-size: 16px;
+    margin: 10px;
+}
 
 #footer {}
+
+#footer a {
+    color: #FFDD00;
+}
+
+#footer img {
+    margin-top: 35px;
+    margin-left: 150px;
+    width: 120px;
+}
 
 .soft {
     opacity: 0.2;
     }
+

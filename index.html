@@ -10,98 +10,73 @@
     <link rel="stylesheet" href="./vendor/bootstrap/2.0.0/bootstrap.css" type="text/css" media="screen" />
 	<link rel="stylesheet" href="./css/estilo.css" type="text/css" media="screen" />
     <script language="javascript" type="text/javascript" src="./vendor/jquery.js"></script>
+    <script language="javascript" type="text/javascript" src="./vendor/jquery-ui/jquery-ui-1.8.20.custom.min.js"></script>
     <script language="javascript" type="text/javascript" src="./js/main.js"></script>
-	<!--<link rel="shortcut icon" href="img/favico.png" type="img/x-icon" /> -->
-    <script>
-    function gup( name ) {
-      name = name.replace(/[\[]/,"\\\[").replace(/[\]]/,"\\\]");
-      var regexS = "[\\?&]"+name+"=([^&#]*)";
-      var regex = new RegExp( regexS );
-      var results = regex.exec( window.location.href );
-      if( results == null )
-        return "";
-      else
-        var result = results[1].substring(0,results[1].length);
-        return decodeURIComponent(result).replace(/\+/g, " ")
-    }
-    
-    my = {};
-    my.base_url = "http://thedatahub.org/api/data/2ae8957f-a6a8-405e-95ea-a64e908da1ff";
-    my.termos_comuns = [];
-    my.termos_unicos = [];
-    my.query = { "query" : {
-            "term" : {
-                "autores" : "EXECUTIVO"
-            }
-        },
-    "size":0,
-    "from":0,
-    "facets" : {
-        "autores" : {
-            "terms" : {
-                "field" : "assuntos",
-                "size" : 15
-                }
-            }
-        }
-        };
-    
-    
-    
-    $(document).ready(function() {
-        if (gup("vereador")) {
-            my.vereador = gup("vereador").split("/")[0];
-            my.query.query.term.autores = my.vereador;
-        }
-        my.url = my.base_url + '/_search?source=' + JSON.stringify(my.query)
-        carregaComuns(); 
-        carregaResultados();
-        carregaCampeao();
-    });
-    </script>
-
 </head>
+
 <body>
-    <div class="container">
-        <div id="header" class="row">
-            <div class="span12">
-                <img src="img/logo.gif" alt="Lupa"/>
-                <h1>Inspetor de Interesses</h1>
-                <p>Temas de interesse dos vereadores e vereadoras da Câmara Municipal de São Paulo</p>
-            </div>
-        </div>
-        <div id="vereador" class="row">
-            <div class="span12">
-                <img src="img/placeholder.gif" alt="Imagem do vereador"/>
-                <span id="nome">
-                    <h2>Wadih Mutran</h2>
-                    <span id="legislaturas">(na Câmara há <strong>7</strong> legislaturas)</span>
-                </span>
-            </div>
-        </div>
-        <div id="termos" class="row">
-            <div id="top3" class="span6">
-                <p>Temas abordados em proposições de lei - Top 15</p>
-                <ul>
-                </ul>
-            </div>
-            <div id="campeão" class="span6">
-                <img src="img/campeao2.jpg" width=150px alt="Imagem do artigo"/>
-                <p>Campeão do tema</p>
-                <span id="termocampeao">{{termocampeao}}</span>
-            </div>
-        </div>
-        <div id="filtros" class="row">
-            <div class="span6">
-                <ul><p>Filtrar resultados:</p>
-                    <li onClick="removeComuns()">Retirar termos comuns para todos</li>
-                </ul>
-            </div>
-        </div>
-        <div id="footer" class="row">
-            <div class="span12">
-                <p>Sobre</p>
-            </div>
-        </div>
-    </div>
+<script>
+	$(function() {
+    $("#vereadores" ).autocomplete({
+    source: function( request, response ) {
+      var wildcard = request.term.toUpperCase();
+      
+      var q = {
+           "query": { 
+                "match_all" : {}
+                },
+            "size" : 0,
+            "facets" : {
+                "autores" : {
+                    "terms" : {
+                        "field" : "autores"
+                        },
+                "facet_filter" : {
+                    "prefix" : {
+                        "autores" : wildcard
+                        }
+                    }
+                    }
+                }
+            };
+      
+      $.ajax({
+        url: "http://thedatahub.org/api/data/2ae8957f-a6a8-405e-95ea-a64e908da1ff/_search?source=" + JSON.stringify(q),
+        type: "GET",
+        success: function( data ) {
+          response( $.map( data.facets.autores.terms, function( item ) {
+            return {
+              label: item.term,
+              id: item.term
+            }
+          }));
+        }
+      });
+    },
+    minLength: 2
+  })
+});
+	</script>
+
+
+	
+<div class="demo">
+
+<div class="ui-widget"> 
+    <form id="busca_vereador" action="./vereador.html" method="get">
+    <label for="vereadores">Nome: </label>
+    <input id="vereadores" name="vereador">
+    <button type="submit" value="Ir">Ir</button>
+ </form>
+</div>
+
+</div><!-- End demo -->
+
+
+
+<div class="demo-description" style="display: none; ">
+<p>The Autocomplete widgets provides suggestions while you type into the field. Here the suggestions are tags for programming languages, give "ja" (for Java or JavaScript) a try.</p>
+<p>The datasource is a simple JavaScript array, provided to the widget using the source-option.</p>
+</div><!-- End demo-description -->
 </body>
+</html>
