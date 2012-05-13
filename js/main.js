@@ -62,6 +62,7 @@ function carregaCampeao() {
                 success: function(data){
                     if (data.facets.autores.terms[0].term == my.vereador) {
                         $("#termocampeao").text(assunto);
+                         $('#campeao').fadeIn('slow');
                         campeao = true;
                     }
                 }  

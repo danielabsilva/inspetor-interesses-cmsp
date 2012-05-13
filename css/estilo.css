@@ -35,6 +35,14 @@ body p{
     margin-right: 10px;
 }
 
+#header a:hover {
+    text-decoration: none;
+    }
+
+#main {
+    display:none;
+    }
+    
 #vereador {
     margin-top: 30px;
 }
@@ -83,6 +91,7 @@ body p{
 #campeao {
     text-align: center;
     margin-top: 20px;
+    display:none;
 }
 
 #campeao p {
