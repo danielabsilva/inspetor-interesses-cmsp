@@ -57,6 +57,7 @@
         carregaComuns(); 
         carregaResultados();
         carregaCampeao();
+        $('#main').slideDown('slow');
     });
     </script>
 
@@ -65,11 +66,14 @@
     <div class="container">
         <div id="header" class="row">
             <div class="span12">
-                <img src="img/logo.gif" alt="Lupa"/>
-                <h1>Inspetor de Interesses</h1>
-                <p>Temas de interesse dos vereadores e vereadoras da Câmara Municipal de São Paulo</p>
+                <a href="./index.html">
+                    <img src="img/logo.gif" alt="Lupa"/>
+                    <h1>Inspetor de Interesses</h1>
+                    <p>Temas de interesse dos vereadores e vereadoras da Câmara Municipal de São Paulo</p>
+                </a>
             </div>
         </div>
+        <div id="main">
         <div id="vereador" class="row">
             <div class="span6">
                 <img src="img/placeholder.gif" alt="Imagem do vereador"/>
@@ -96,6 +100,7 @@
                     </span>
                 </ul>
             </div>
+        </div>
         </div>
         <div id="footer" class="row">
             <div class="span12">
